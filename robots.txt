@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://beamish-palmier-604b39.netlify.app/sitemap.xml

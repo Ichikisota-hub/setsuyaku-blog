@@ -1,0 +1,29 @@
+{
+  "amazon_tag": "origin010-22",
+  "rakuten_card": "https://hb.afl.rakuten.co.jp/hsc/5373916a.36f54b67.53738f06.7c949881/?link_type=pict&ut=eyJwYWdlIjoic2hvcCIsInR5cGUiOiJwaWN0IiwiY29sIjoxLCJjYXQiOjEsImJhbiI6NTUwOTk0LCJhbXAiOmZhbHNlfQ%3D%3D",
+  "rakuten_card_banner": "https://hbb.afl.rakuten.co.jp/hsb/5373916a.36f54b67.53738f06.7c949881/?me_id=2101014&me_adv_id=550994&t=pict",
+  "products": [
+    {"name":"伸縮式キッチン収納ラック","url":"https://amzn.to/48PLsME","tags":["キッチン","収納","ラック"],"emoji":"🗂️"},
+    {"name":"マグネット式調味料ラック","url":"https://amzn.to/48oUAI1","tags":["キッチン","調味料","冷蔵庫"],"emoji":"🧂"},
+    {"name":"食器スタンド","url":"https://amzn.to/41YhrGH","tags":["食器","収納","キッチン"],"emoji":"🍽️"},
+    {"name":"吊り下げ式棚下収納ラック","url":"https://amzn.to/4vP82ij","tags":["棚下","収納","キッチン"],"emoji":"🗄️"},
+    {"name":"調味料ボトルセット","url":"https://amzn.to/4uezLaJ","tags":["調味料","収納","統一感"],"emoji":"🫙"},
+    {"name":"シンク下伸縮収納ラック","url":"https://amzn.to/4d19UNz","tags":["シンク下","収納","整理"],"emoji":"🧤"},
+    {"name":"マグネット包丁ホルダー","url":"https://amzn.to/4n0k4RZ","tags":["包丁","収納","壁"],"emoji":"🔪"},
+    {"name":"コンロ下引き出し式ケース","url":"https://amzn.to/4mVW3vw","tags":["コンロ下","収納","引き出し"],"emoji":"📦"},
+    {"name":"アタック抗菌EX洗濯洗剤詰め替え","url":"https://amzn.to/4erXmQH","tags":["洗剤","洗濯","節約"],"emoji":"🧴"},
+    {"name":"スコッティトイレットペーパー64ロール","url":"https://amzn.to/48nS6tv","tags":["トイレットペーパー","まとめ買い","節約"],"emoji":"🧻"},
+    {"name":"山崎実業ディスペンサーセット","url":"https://amzn.to/42syAZ8","tags":["詰め替え","ディスペンサー","整理"],"emoji":"🪣"},
+    {"name":"ストック収納ケース","url":"https://amzn.to/4d43H3j","tags":["ストック","収納","日用品"],"emoji":"📦"},
+    {"name":"Amazonプライム","url":"https://amzn.to/4mPkmLx","tags":["Amazon","プライム","節約"],"emoji":"⭐"}
+  ],
+  "category_rules": {
+    "キッチン": ["キッチン","調味料","食器","包丁","コンロ"],
+    "整理収納": ["収納","整理","ラック","棚"],
+    "節約術": ["節約","日用品","まとめ買い","洗剤"],
+    "通信費節約": [],
+    "光熱費節約": [],
+    "クレジットカード": ["クレジットカード","ポイント","楽天"],
+    "食費節約": ["食費","保存","冷凍"]
+  }
+}

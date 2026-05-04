@@ -1,0 +1,39 @@
+name: 毎日記事自動生成
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 毎朝9:00 JST (= UTC 0:00)
+  workflow_dispatch:        # 手動実行ボタンも有効
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Python セットアップ
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 依存パッケージインストール
+        run: pip install anthropic
+
+      - name: 記事生成
+        run: python scripts/generate.py
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: 変更をコミット・プッシュ
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name  "GitHub Actions"
+          git add -A
+          git diff --staged --quiet && echo "変更なし" || git commit -m "📝 $(date +%Y-%m-%d) 記事3本を自動生成"
+          git push

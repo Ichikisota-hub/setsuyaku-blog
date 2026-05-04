@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>無料スマホ・ネット料金診断 | くらしの節約ラボ</title>
+  <meta name="description" content="今のスマホ代・ネット代が本当にお得かどうか、無料で診断します。auひかりのセット割で月々の通信費をまとめて節約できるかご提案します。">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', sans-serif;
+      background: #F5F7FB;
+      color: #2D3436;
+    }
+
+    /* ヒーロー */
+    .hero-lp {
+      background: linear-gradient(135deg, #0D1B3E 0%, #1A3A6E 60%, #E60012 100%);
+      padding: 64px 24px 80px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-lp::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(ellipse at 70% 30%, rgba(230,0,18,.15) 0%, transparent 60%);
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+    .hero-lp h1 {
+      font-size: 42px;
+      font-weight: 900;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .hero-lp h1 span {
+      color: #FFD700;
+    }
+    .hero-lp p {
+      font-size: 16px;
+      opacity: .9;
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+    .hero-nums {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .hero-num-box {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 14px;
+      padding: 16px 24px;
+      text-align: center;
+    }
+    .hero-num-val {
+      font-size: 30px;
+      font-weight: 900;
+      color: #FFD700;
+    }
+    .hero-num-label {
+      font-size: 12px;
+      opacity: .8;
+      margin-top: 4px;
+    }
+
+    /* メインコンテンツ */
+    .lp-body {
+      max-width: 720px;
+      margin: -32px auto 0;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* 信頼バッジ */
+    .trust-bar {
+      background: white;
+      border-radius: 16px;
+      padding: 20px 28px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.10);
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .trust-item {
+      text-align: center;
+    }
+    .trust-icon { font-size: 26px; margin-bottom: 4px; }
+    .trust-label { font-size: 12px; font-weight: 700; color: #2D3436; }
+
+    /* セクションタイトル */
+    .sec-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1B2A4E;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    /* こんな人向け */
+    .target-list {
+      background: white;
+      border-radius: 16px;
+      padding: 24px 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      margin-bottom: 32px;
+      list-style: none;
+    }
+    .target-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid #F0F0F0;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .target-list li:last-child { border-bottom: none; }
+    .target-list li::before {
+      content: '✓';
+      background: #E60012;
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* 節約シミュ */
+    .saving-card {
+      background: linear-gradient(135deg, #E60012, #FF6B35);
+      border-radius: 16px;
+      padding: 28px;
+      color: white;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .saving-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 20px; }
+    .saving-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .saving-box {
+      background: rgba(255,255,255,.15);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-align: center;
+    }
+    .saving-box-label { font-size: 11px; opacity: .8; margin-bottom: 4px; }
+    .saving-box-val { font-size: 24px; font-weight: 900; }
+    .saving-arrow { font-size: 24px; opacity: .7; }
+    .saving-note { font-size: 12px; opacity: .8; margin-top: 8px; }
+
+    /* フォーム */
+    .form-card {
+      background: white;
+      border-radius: 20px;
+      padding: 36px 32px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.10);
+      margin-bottom: 24px;
+    }
+    .form-card h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1B2A4E;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .form-card .form-sub {
+      text-align: center;
+      font-size: 13px;
+      color: #636e72;
+      margin-bottom: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #2D3436;
+      margin-bottom: 6px;
+    }
+    .form-group label .required {
+      background: #E60012;
+      color: white;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+    .form-group label .optional {
+      background: #95a5a6;
+      color: white;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 2px solid #E8E8E8;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 16px;
+      font-family: inherit;
+      color: #2D3436;
+      outline: none;
+      transition: border-color .2s;
+      background: #FAFAFA;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #E60012;
+      background: white;
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, #E60012, #FF6B35);
+      color: white;
+      font-size: 18px;
+      font-weight: 800;
+      padding: 18px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 8px;
+      box-shadow: 0 6px 20px rgba(230,0,18,.35);
+      transition: transform .15s, box-shadow .15s;
+      font-family: inherit;
+    }
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(230,0,18,.45);
+    }
+
+    .privacy-note {
+      text-align: center;
+      font-size: 11px;
+      color: #95a5a6;
+      margin-top: 12px;
+    }
+
+    /* ステップ説明 */
+    .steps {
+      background: white;
+      border-radius: 16px;
+      padding: 24px 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      margin-bottom: 32px;
+    }
+    .step-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .step-item:last-child { margin-bottom: 0; }
+    .step-num {
+      background: linear-gradient(135deg, #E60012, #FF6B35);
+      color: white;
+      font-size: 13px;
+      font-weight: 800;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-title { font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+    .step-desc { font-size: 12px; color: #636e72; line-height: 1.6; }
+
+    /* フッター */
+    footer {
+      background: #1B2A4E;
+      color: #b2bec3;
+      text-align: center;
+      padding: 24px;
+      font-size: 12px;
+    }
+    footer a { color: #b2bec3; }
+
+    @media (max-width: 600px) {
+      .hero-lp h1 { font-size: 30px; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 24px 20px; }
+      .hero-nums { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ヒーロー -->
+<section class="hero-lp">
+  <div class="hero-tag">完全無料 · 相談0円</div>
+  <h1>スマホ代・ネット代<br><span>まとめて節約</span>の<br>無料診断サービス</h1>
+  <p>今のプランを見直すだけで月々いくら安くなるか、<br>無料で診断・ご提案します。</p>
+  <div class="hero-nums">
+    <div class="hero-num-box">
+      <div class="hero-num-val">¥2,200〜</div>
+      <div class="hero-num-label">月々の節約額（目安）</div>
+    </div>
+    <div class="hero-num-box">
+      <div class="hero-num-val">¥26,400〜</div>
+      <div class="hero-num-label">年間節約額（目安）</div>
+    </div>
+    <div class="hero-num-box">
+      <div class="hero-num-val">0円</div>
+      <div class="hero-num-label">相談・診断料金</div>
+    </div>
+  </div>
+</section>
+
+<div class="lp-body">
+
+  <!-- 信頼バッジ -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <div class="trust-icon">🆓</div>
+      <div class="trust-label">相談・診断<br>完全無料</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🙅</div>
+      <div class="trust-label">しつこい<br>勧誘なし</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">⏱️</div>
+      <div class="trust-label">最短24時間<br>以内に返信</div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">🔒</div>
+      <div class="trust-label">個人情報<br>厳重管理</div>
+    </div>
+  </div>
+
+  <!-- こんな方向け -->
+  <p class="sec-title" style="margin-bottom:12px;">こんな方におすすめ</p>
+  <ul class="target-list">
+    <li>スマホ代が毎月6,000円以上かかっている</li>
+    <li>auのスマホを使っているが光回線はまだ決めていない</li>
+    <li>今の光回線の契約更新時期が近い</li>
+    <li>家族でauを使っていて通信費をまとめて節約したい</li>
+    <li>インターネット回線の乗り換えを検討している</li>
+    <li>何が自分に合ったプランか分からない</li>
+  </ul>
+
+  <!-- 節約シミュレーション -->
+  <div class="saving-card">
+    <h3>💰 節約シミュレーション例</h3>
+    <div class="saving-row">
+      <div class="saving-box">
+        <div class="saving-box-label">現在の月額（スマホ＋ネット）</div>
+        <div class="saving-box-val">¥15,000</div>
+      </div>
+      <div class="saving-arrow">→</div>
+      <div class="saving-box">
+        <div class="saving-box-label">見直し後の月額</div>
+        <div class="saving-box-val" style="color:#FFD700;">¥11,000〜</div>
+      </div>
+    </div>
+    <div style="font-size:22px;font-weight:900;margin:8px 0;">月々 ▲4,000円 / 年間 ▲48,000円</div>
+    <div class="saving-note">※auスマートバリュー適用時の目安。家族4人の場合はさらにお得になるケースがあります。</div>
+  </div>
+
+  <!-- 流れ -->
+  <p class="sec-title">ご相談の流れ</p>
+  <div class="steps" style="margin-bottom:32px;">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">フォームに入力して送信（2分）</div>
+        <div class="step-desc">現在のスマホキャリアと月額料金を入力するだけ。難しい情報は不要です。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">24時間以内にご連絡します</div>
+        <div class="step-desc">ご入力いただいた情報をもとに、最適な節約プランを検討してご提案します。</div>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">無料でプランをご提案</div>
+        <div class="step-desc">乗り換えた場合の節約額・工事日程・手続きをわかりやすくご説明します。申し込みは任意です。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- フォーム -->
+  <div class="form-card">
+    <h2>📋 無料診断フォーム</h2>
+    <p class="form-sub">記入は2分で完了します</p>
+
+    <!-- Netlifyフォーム（netlify属性で自動処理） -->
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="5aace894-ad66-4bf2-87a8-fdcd311af273">
+      <input type="hidden" name="subject" value="【くらしの節約ラボ】auひかり 無料診断のお申し込み">
+      <input type="hidden" name="redirect" value="https://beamish-palmier-604b39.netlify.app/thanks.html">
+      <input type="checkbox" name="botcheck" style="display:none">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>お名前<span class="required">必須</span></label>
+          <input type="text" name="name" placeholder="山田 太郎" required>
+        </div>
+        <div class="form-group">
+          <label>電話番号<span class="required">必須</span></label>
+          <input type="tel" name="phone" placeholder="090-0000-0000" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>メールアドレス<span class="optional">任意</span></label>
+        <input type="email" name="email" placeholder="example@gmail.com">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>現在のスマホキャリア<span class="required">必須</span></label>
+          <select name="carrier" required>
+            <option value="">選択してください</option>
+            <option value="au">au</option>
+            <option value="docomo">docomo</option>
+            <option value="softbank">SoftBank</option>
+            <option value="rakuten">楽天モバイル</option>
+            <option value="mvno">格安SIM（その他）</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>月々のスマホ代（目安）<span class="required">必須</span></label>
+          <select name="monthly_fee" required>
+            <option value="">選択してください</option>
+            <option value="3000以下">3,000円以下</option>
+            <option value="3000-5000">3,000〜5,000円</option>
+            <option value="5000-8000">5,000〜8,000円</option>
+            <option value="8000-10000">8,000〜10,000円</option>
+            <option value="10000以上">10,000円以上</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>現在の自宅ネット回線<span class="required">必須</span></label>
+        <select name="internet" required>
+          <option value="">選択してください</option>
+          <option value="auひかり">auひかり（契約中）</option>
+          <option value="docomo光">ドコモ光</option>
+          <option value="softbank光">SoftBank光</option>
+          <option value="その他光回線">その他の光回線</option>
+          <option value="ない">ネット回線なし</option>
+          <option value="未定">まだ決めていない</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>ご要望・ご質問<span class="optional">任意</span></label>
+        <textarea name="message" placeholder="例：家族3人でauを使っています。まとめて安くできますか？"></textarea>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        無料で診断・相談を申し込む →
+      </button>
+      <p class="privacy-note">
+        ご入力いただいた情報は、お問い合わせへの返答以外に使用しません。<br>
+        <a href="#">プライバシーポリシー</a>をご確認ください。
+      </p>
+    </form>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 くらしの節約ラボ</p>
+  <p style="margin-top:8px;">
+    <a href="index.html">トップへ戻る</a> |
+    <a href="#">プライバシーポリシー</a>
+  </p>
+</footer>
+
+</body>
+</html>
