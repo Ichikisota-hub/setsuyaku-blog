@@ -5,48 +5,65 @@
 
   "programs": [
     {
+      "id": "denki_choice",
+      "name": "電気チョイス",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4B3JAG+2OG8S2+3SPO+TSJ41",
+      "banner": "https://www27.a8.net/svt/bgt?aid=260505448162&wid=001&eno=01&mid=s00000017718005004000&mc=1",
+      "banner_w": 468, "banner_h": 60,
+      "commission": 8000,
+      "tags": ["電気代","電力会社","電力切り替え","節約","光熱費","でんき","新電力"],
+      "category": "光熱費節約",
+      "emoji": "⚡",
+      "description": "電力切り替えでキャッシュバック最大30,000円。無料で料金プランを比較できます。",
+      "cta": "電気料金を無料で比較する"
+    },
+    {
+      "id": "docomo_hikari_gmo",
+      "name": "GMOとくとくBB × ドコモ光",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4B3JAG+2KVN5E+50+556VPT",
+      "banner": "https://www26.a8.net/svt/bgt?aid=260505448156&wid=001&eno=01&mid=s00000000018031105000&mc=1",
+      "banner_w": 700, "banner_h": 320,
+      "commission": 20000,
+      "tags": ["ドコモ光","光回線","インターネット","通信費","Wi-Fi","ネット回線"],
+      "category": "通信費節約",
+      "emoji": "📶",
+      "description": "Wi-Fi7対応ルーター付き。月額実質6,840円でドコモ光10ギガが使えます。",
+      "cta": "ドコモ光10ギガの詳細を見る"
+    },
+    {
+      "id": "softbank_air",
+      "name": "SoftBank Air",
+      "url": "https://px.a8.net/svt/ejp?a8mat=4B3IIN+CGBFAQ+3SPO+3N0FO1",
+      "banner": "https://www27.a8.net/svt/bgt?aid=260504447753&wid=001&eno=01&mid=s00000017718022005000&mc=1",
+      "banner_w": 320, "banner_h": 50,
+      "commission": 10000,
+      "tags": ["SoftBank Air","ホームルーター","光回線","インターネット","通信費","工事不要","Wi-Fi"],
+      "category": "通信費節約",
+      "emoji": "📡",
+      "description": "工事不要・コンセントに挿すだけで自宅Wi-Fi完成。月額実質2,368円〜。",
+      "cta": "SoftBank Airの料金を確認する"
+    },
+    {
+      "id": "rakuten_a8",
+      "name": "楽天市場",
+      "url": "https://rpx.a8.net/svt/ejp?a8mat=4B3IIN+958QB6+2HOM+686ZL&rakuten=y&a8ejpredirect=http%3A%2F%2Fhb.afl.rakuten.co.jp%2Fhgc%2F0ea62065.34400275.0ea62066.204f04c0%2Fa26050409625_4B3IIN_958QB6_2HOM_686ZL%3Fpc%3Dhttp%253A%252F%252Fwww.rakuten.co.jp%252F%26m%3Dhttp%253A%252F%252Fm.rakuten.co.jp%252F",
+      "commission": 3000,
+      "tags": ["楽天市場","楽天","ポイント","節約","通販","まとめ買い"],
+      "category": "節約術",
+      "emoji": "🛍️",
+      "description": "楽天市場でポイント最大16倍。日用品・食品のまとめ買いで節約。",
+      "cta": "楽天市場で最安値を確認する"
+    },
+    {
       "id": "au_hikari",
-      "name": "auひかり",
+      "name": "auひかり（自社）",
       "url": "PENDING_AU_HIKARI",
       "commission": 25000,
-      "tags": ["光回線","auひかり","インターネット","通信費"],
+      "tags": ["auひかり","au光","au インターネット"],
       "category": "通信費節約",
       "emoji": "📡",
       "description": "auスマートバリュー対応・最大25,000円キャッシュバックあり",
       "cta": "auひかりの料金を確認する"
-    },
-    {
-      "id": "docomo_hikari",
-      "name": "ドコモ光",
-      "url": "PENDING_A8_DOCOMO",
-      "commission": 18000,
-      "tags": ["ドコモ光","光回線","インターネット","通信費"],
-      "category": "通信費節約",
-      "emoji": "📶",
-      "description": "ドコモユーザー必見・セット割で月々最大1,100円割引",
-      "cta": "ドコモ光の料金を確認する"
-    },
-    {
-      "id": "softbank_hikari",
-      "name": "SoftBank光",
-      "url": "PENDING_A8_SOFTBANK",
-      "commission": 13000,
-      "tags": ["SoftBank光","光回線","インターネット","通信費"],
-      "category": "通信費節約",
-      "emoji": "📶",
-      "description": "SoftBankユーザーは光セット割で月最大1,000円割引",
-      "cta": "SoftBank光の料金を確認する"
-    },
-    {
-      "id": "rakuten_mobile",
-      "name": "楽天モバイル",
-      "url": "PENDING_A8_RAKUTEN_MOBILE",
-      "commission": 8000,
-      "tags": ["楽天モバイル","格安SIM","スマホ代","通信費"],
-      "category": "通信費節約",
-      "emoji": "📱",
-      "description": "月2,178円〜・国内通話かけ放題・データ無制限",
-      "cta": "楽天モバイルの料金を確認する"
     },
     {
       "id": "smbc_card",
